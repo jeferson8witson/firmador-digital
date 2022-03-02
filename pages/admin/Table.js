@@ -104,6 +104,61 @@ const people = [
                       Key10
                     </th>
                   
+                    <th
+                      scope="col"
+                      className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Key11
+                    </th> <th
+                      scope="col"
+                      className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Key12
+                    </th> <th
+                      scope="col"
+                      className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Key13
+                    </th> <th
+                      scope="col"
+                      className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Key14
+                    </th> <th
+                      scope="col"
+                      className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Key15
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Key16
+                    </th> <th
+                      scope="col"
+                      className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Key17
+                    </th> <th
+                      scope="col"
+                      className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Key18
+                    </th> <th
+                      scope="col"
+                      className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Key19
+                    </th> <th
+                      scope="col"
+                      className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Key20
+                    </th>
+                  
+
+
                   </tr>
                 </thead>
                 <tbody>
@@ -113,6 +168,8 @@ const people = [
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{person.password}</td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{person.metodo}</td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{person.entidad}</td>
+                      {person.keys ? 
+                    <>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{person.keys.key1}</td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{person.keys.key2}</td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{person.keys.key3}</td>
@@ -123,6 +180,19 @@ const people = [
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{person.keys.key8}</td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{person.keys.key9}</td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{person.keys.key10}</td>
+
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{person.keys.key11}</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{person.keys.key12}</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{person.keys.key13}</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{person.keys.key14}</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{person.keys.key15}</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{person.keys.key16}</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{person.keys.key17}</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{person.keys.key18}</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{person.keys.key19}</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{person.keys.key20}</td>
+                    </>
+                    :""}
                     </tr>
                   ))}
                 </tbody>
