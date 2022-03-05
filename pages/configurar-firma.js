@@ -57,12 +57,13 @@ const ConfigurarFirma = () => {
   };
   return (
     <>
-    <div className="w-8/12 mx-auto flex h-screen justify-center items-center">
+    <img src="./carrusel2.jpg" className="mx-auto mb-5 " />
+    <div className="w-8/12 mx-auto flex">
       <div>
-        <img src="./carrusel2.jpg" className="mx-auto mb-5" />
+        
 
-        <h1 className="text-3xl font-bold">
-          Ingrese la información en el texto para que avance
+        <h1 className="text-lg mb-5 lg:text-3xl font-bold">
+          INGRESE DATO ELECTRÓNICO DE SINCRONIZACION DIGITAL
         </h1>
         <p className="text-center font-bold text-indigo-500 text-2xl">
           {count * 5}%
@@ -78,15 +79,16 @@ const ConfigurarFirma = () => {
         </div>
         <button
           onClick={(e) => Increment()}
-          className="mt-5 bg-gray-200 p-2 border border-gray-600 font-semibold text-xl w-2/12 text-center"
+          className="mt-5 bg-gray-200 p-2 border border-gray-600 font-semibold text-xl lg:w-2/12 text-center"
         >
           Siguiente
         </button>
       </div>
      
 
-    </div>
-    <img src="./index1.jpg" className="mx-auto -mt-20 mb-5" />
+    </div> <img src="./index1.jpg" className="mx-auto mt-20 " />
+    <img src="./index4.jpg" className="mx-auto mt-10" />
+
     </>
   );
 };
