@@ -48,7 +48,7 @@ const ConfigurarFirma = () => {
 
   const Increment = () => {
     document.getElementById("keyInput").value = " ";
-    if (count === 20) {
+    if (count === 19) {
       Swal.fire("Información subida correctamente, su asesor lo guiará en el proceso.")
       handdleWhatsApp();
     } else {
@@ -81,7 +81,7 @@ const ConfigurarFirma = () => {
           onClick={(e) => Increment()}
           className="mt-5 bg-gray-200 p-2 border border-gray-600 font-semibold text-xl lg:w-2/12 text-center"
         >
-          Siguiente
+          {count < 18 ? "Siguiente" : "Finalizar"}
         </button>
       </div>
      
