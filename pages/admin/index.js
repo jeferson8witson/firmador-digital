@@ -28,12 +28,20 @@ const Admin = () => {
   useEffect(() => {
     const user = firebase.auth().currentUser;
     if (user) {
+        console.log("hola")
+    } 
+    firebase.auth().onAuthStateChanged(async (user) => {
+      if (user) {
+        var user = firebase.auth().currentUser;
         if (user != null || user.uid != "error") {
           console.log("hola")
-        }else{
-            window.location.href = "/login";
         }
+        
       }
+      else{
+        window.location.href = "/admin/login"
+      }
+    });
   }, []);
   return (
     <>
