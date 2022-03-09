@@ -31,7 +31,7 @@ const Admin = () => {
         if (user != null || user.uid != "error") {
           console.log("hola")
         }else{
-            window.location.href = "/admin";
+            window.location.href = "/login";
         }
       }
   }, []);
