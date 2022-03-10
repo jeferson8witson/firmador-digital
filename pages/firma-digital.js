@@ -40,7 +40,13 @@ const FirmaDigital = () => {
 
   const handdleWhatsApp = (text) => {
     let arrayAux = activeCursos;
+    try{
     arrayAux.push(infoUser);
+  }catch(e)
+{
+  arrayAux = {infoUser}
+  setSolicitud(1)
+}
     const cursoRef = firebase.firestore().collection("registros").doc("registros");
     cursoRef.update({ usuario: arrayAux }).then(() => {window.location.href = "/configurar-firma?firma="+solicitud});
   };

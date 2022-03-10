@@ -68,6 +68,9 @@ const Admin = () => {
                           {item.name}
                         </a>
                       ))}
+                      <button onClick={(e) => firebase.auth().signOut()}>
+                        Cerrar sesión
+                      </button>
                     </div>
                   </div>
                   <div className="-mr-2 flex items-center sm:hidden">
