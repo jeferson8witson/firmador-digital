@@ -61,7 +61,7 @@ const FirmaDigital = () => {
       <main className="lg:w-8/12 mx-auto items-center justify-center  flex-1 mt-20 ">
         <img src="./carrusel1.jpg" className="mx-auto mb-5"/>
         <h1 className="text-4xl lg:text-10xl font-bold text-center uppercase">
-          {state === "false" ? "Sin firma digital" : "Con firma digital"}
+          {state === "false" ? "Sin firma digital" : "Certificado digital"}
         </h1>
       </main>
       <div className="w-11/12 lg:w-5/12 mx-auto bg">
@@ -90,7 +90,7 @@ const FirmaDigital = () => {
               value="firma digital"
               onChange={(e) => CreateUser("metodo", e.target.value)}
             />
-            <p className="-mt-1.5 ml-2">Firma digital</p>
+            <p className="-mt-1.5 ml-2">Certificado digital</p>
           </div>
           <div className="flex flex-col mt-3 space-y-2">
             <label>Entidades Financieras</label>

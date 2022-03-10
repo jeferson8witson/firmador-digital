@@ -4,7 +4,7 @@ const ObtenerCita = () => {
       <h1 className="text-10xl font-bold text-center ">Cita Digital Costa Rica</h1>
       <img className="w-screen" src="/firma.jpeg" />
       <h1 className="text-4xl max-w-xl text-blue-500 font-bold text-center py-10">
-        ES OBLIGATORIO TENER FIRMA DIGITAL, SINO LA TIENES POR FAVOR DEBE
+        ES OBLIGATORIO TENER CERTIFICADO DIGITAL, SINO LA TIENES POR FAVOR DEBE
         REGISTRARSE
       </h1>
       <div className="grid lg:grid-cols-2 lg:space-x-10 space-y-5 lg:space-y-0 pb-48 ">
@@ -13,7 +13,7 @@ const ObtenerCita = () => {
             <div>
               <h1 className="text-white font-bold">
                 {" "}
-                Registrarse tu entidad financiera para tu certificado
+                Registrar tu entidad financiera para tu certificado
               </h1>
             
             </div>
