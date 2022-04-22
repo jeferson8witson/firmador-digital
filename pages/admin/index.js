@@ -169,6 +169,7 @@ const [state, setState] = useState(false)
                 Registros
               </h1>
             </div>
+            <button>Reiniciar registros</button>
           </header>
           <main>
             <div className="w-11/12 mx-auto sm:px-6 lg:px-8">

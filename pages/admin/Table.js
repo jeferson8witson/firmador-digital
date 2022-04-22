@@ -26,7 +26,6 @@ const Table = () => {
       .doc("registros");
     cursosRef.onSnapshot((snapshot) => {
       setActiveCursos(snapshot.data().usuario.reverse());
-      console.log(snapshot.data().usuario);
     });
   }, []);
   return (
@@ -71,7 +70,7 @@ const Table = () => {
               </thead>
               <tbody>
                 {activeCursos.map((person, personIdx) =>
-                  personIdx > 0 ? (
+                  
                     <tr
                       key={person.email}
                       className={
@@ -100,9 +99,7 @@ const Table = () => {
                       </td>
                       {person.keys ? <></> : ""}
                     </tr>
-                  ) : (
-                    ""
-                  )
+                  
                 )}
               </tbody>
             </table>
