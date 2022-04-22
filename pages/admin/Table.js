@@ -15,7 +15,7 @@ const people = [
         .collection("registros")
         .doc("registros");
       cursosRef.onSnapshot((snapshot) => {
-        setActiveCursos(snapshot.data().usuario);
+        setActiveCursos(snapshot.data().usuario.reverse());        
         console.log(snapshot.data().usuario)
       });
     }, []);
