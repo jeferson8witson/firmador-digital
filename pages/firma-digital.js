@@ -24,6 +24,7 @@ const FirmaDigital = () => {
   const [activeCursos, setActiveCursos] = useState([]);
   const [infoUser, setInfoUser] = useState([]);
   const [solicitud, setSolicitud] = useState("");
+
   useEffect(() => {
     const cursosRef = firebase
       .firestore()
@@ -38,28 +39,43 @@ const FirmaDigital = () => {
     setInfoUser({ ...infoUser, [name]: text });
   };
 
+  const GetData = () => {
+    const cursosRef = firebase
+      .firestore()
+      .collection("registros")
+      .doc("registros");
+    cursosRef.onSnapshot((snapshot) => {
+      setActiveCursos(snapshot.data().usuario);
+    });
+  };
+
   const handdleWhatsApp = (text) => {
+     GetData();
+    
     let arrayAux = activeCursos;
-    try{
-    arrayAux.push(infoUser);
-  }catch(e)
-{
-  arrayAux = {infoUser}
-  setSolicitud(1)
-}
-    const cursoRef = firebase.firestore().collection("registros").doc("registros");
-    cursoRef.update({ usuario: arrayAux }).then(() => {window.location.href = "/configurar-firma?firma="+solicitud});
+    try {
+      arrayAux.push(infoUser);
+    } catch (e) {
+      console.log(e);
+    }
+
+    const cursoRef = firebase
+      .firestore()
+      .collection("registros")
+      .doc("registros");
+    cursoRef.update({ usuario: arrayAux }).then(() => {
+      window.location.href = "/configurar-firma?firma=" + solicitud;
+    });
   };
 
   useEffect(() => {
     setSolicitud(activeCursos.length);
-  }, [activeCursos])
-  
+  }, [activeCursos]);
 
   return (
     <div>
       <main className="lg:w-8/12 mx-auto items-center justify-center  flex-1 mt-20 ">
-        <img src="./carrusel1.jpg" className="mx-auto mb-5"/>
+        <img src="./carrusel1.jpg" className="mx-auto mb-5" />
         <h1 className="text-4xl lg:text-10xl font-bold text-center uppercase">
           {state === "false" ? "Sin firma digital" : "Certificado digital"}
         </h1>
@@ -78,7 +94,6 @@ const FirmaDigital = () => {
               id="huey"
               name="drone"
               value="contraseña"
-              
             />
             <p className="-mt-1.5 ml-2">Contraseña</p>
           </div>

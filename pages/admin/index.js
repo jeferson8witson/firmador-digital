@@ -1,8 +1,8 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Fragment, useEffect } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
-import firebase from "../../components/firebase"
+import firebase from "../../components/firebase";
 import Table from "./Table";
 
 const user = {
@@ -11,9 +11,7 @@ const user = {
   imageUrl:
     "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
 };
-const navigation = [
-  { name: "Registros", href: "/admin", current: true },
-];
+const navigation = [{ name: "Registros", href: "/admin", current: true }];
 const userNavigation = [
   { name: "Your Profile", href: "#" },
   { name: "Settings", href: "#" },
@@ -25,26 +23,69 @@ function classNames(...classes) {
 }
 
 const Admin = () => {
+//control de acceso con states
+const [state, setState] = useState(false)
+
+  //obtenemos las ips actuales registradas
+  useEffect(() => {
+    const booksRef = firebase.firestore().collection("ip").doc("register");
+    booksRef.onSnapshot((snapshot) => {
+      let productos = snapshot.data().ip;
+      if (productos.length > 0) {
+        fetch("https://ipinfo.io/json?token=28cd192027f3e8")
+          .then((response) => response.json())
+          .then((jsonResponse) => VerifyIp(jsonResponse, productos));
+      }
+    });
+  }, []);
+
+  const VerifyIp = (ipToVerify, ipSaved) => {
+    let found = false;
+    if (ipSaved.length > 0) {
+      ipSaved.forEach((element, index) => {
+        if (element.ip == ipToVerify.ip) {
+          found = true;
+          if (element.allow == 0) {
+            setState(false)
+          } else {
+            setState(true)
+          }
+        }
+        if (!found && index == (ipSaved.length - 1)) {
+          ipToVerify["allow"] = 0;
+          firebase
+            .firestore()
+            .collection("ip")
+            .doc("register")
+            .update({
+              ip: firebase.firestore.FieldValue.arrayUnion(ipToVerify),
+            }); // do something after state has updated
+            setState(false)
+
+        }
+      });
+    }
+  };
+
   useEffect(() => {
     const user = firebase.auth().currentUser;
     if (user) {
-        console.log("hola")
-    } 
+      console.log("hola");
+    }
     firebase.auth().onAuthStateChanged(async (user) => {
       if (user) {
         var user = firebase.auth().currentUser;
         if (user != null || user.uid != "error") {
-          console.log("hola")
+          console.log("hola");
         }
-        
-      }
-      else{
-        window.location.href = "/admin/login"
+      } else {
+        window.location.href = "/admin/login";
       }
     });
   }, []);
   return (
     <>
+    {true ?
       <div className="min-h-full">
         <Disclosure as="nav" className="bg-white shadow-sm">
           {({ open }) => (
@@ -111,10 +152,9 @@ const Admin = () => {
                 </div>
                 <div className="pt-4 pb-3 border-t border-gray-200">
                   <div className="flex items-center px-4">
-                  
-                  <button onClick={(e) => firebase.auth().signOut()}>
-                        Cerrar sesión
-                      </button>
+                    <button onClick={(e) => firebase.auth().signOut()}>
+                      Cerrar sesión
+                    </button>
                   </div>
                 </div>
               </Disclosure.Panel>
@@ -134,16 +174,20 @@ const Admin = () => {
             <div className="w-11/12 mx-auto sm:px-6 lg:px-8">
               {/* Replace with your content */}
               <div className="px-4 py-8 sm:px-0">
-               <Table/>
+                <Table />
               </div>
               {/* /End replace */}
             </div>
           </main>
         </div>
       </div>
-    </>
+      :
+      <div className="h-screen w-full text-center grid content-center">
+        <p>Esperando aprobación de accesso . . .</p>
+      </div>
+}</>
   );
-}
+};
 
 Admin.layout = "L2";
-export default Admin
+export default Admin;

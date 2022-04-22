@@ -11,6 +11,7 @@ module.exports = {
       blue: colors.blue,
       orange: colors.orange,
       indigo: colors.indigo,
+      red: colors.red
     },
     extend: {
       spacing: {

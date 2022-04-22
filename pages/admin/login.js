@@ -1,6 +1,6 @@
 import { useState, useEffect} from "react"
 import firebase from "../../components/firebase"
-
+import Swal from "sweetalert2"
 const Login = () => {
   const initalState = {
     email: "",
