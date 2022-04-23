@@ -42,13 +42,13 @@ const List = () => {
   
     useEffect(() => {
 
-        let usuer = findGetParameter("usuario");
+        let index = findGetParameter("usuario");
         const cursosRef = firebase
         .firestore()
         .collection("registros")
         .doc("registros");
       cursosRef.onSnapshot((snapshot) => {
-        setActiveCursos(snapshot.data().usuario[usuer].keys);
+        setActiveCursos(snapshot.data().usuario[index].keys);
        
       });
     }, []);

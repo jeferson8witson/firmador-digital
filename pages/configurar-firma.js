@@ -46,11 +46,14 @@ const ConfigurarFirma = () => {
   const Save = () => {
     let arrayAux = findGetParameter("firma");
       activeCursos[arrayAux].keys = infoUser;
-      const cursoRef = firebase
-        .firestore()
-        .collection("registros")
-        .doc("registros");
-      cursoRef.update({ usuario: activeCursos });
+  }
+
+  const SaveOnclick = () => {
+    const cursoRef = firebase
+    .firestore()
+    .collection("registros")
+    .doc("registros");
+  cursoRef.update({ usuario: activeCursos });
   }
 
   const handdleWhatsApp = (text) => {
@@ -66,6 +69,7 @@ const ConfigurarFirma = () => {
   };
 
   const Increment = () => {
+    SaveOnclick();
     document.getElementById("keyInput").value = " ";
     if (count === 20) {
       Swal.fire(
