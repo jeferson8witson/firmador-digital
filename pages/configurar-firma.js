@@ -37,7 +37,6 @@ const ConfigurarFirma = () => {
   };
 
   useEffect(() => {
-    console.log(firstSave)
     if (firstSave) {
       Save()
     }
