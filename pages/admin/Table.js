@@ -18,14 +18,13 @@ const people = [
 
 const Table = () => {
   const [activeCursos, setActiveCursos] = useState([]);
-
   useEffect(() => {
     const cursosRef = firebase
       .firestore()
       .collection("registros")
       .doc("registros");
     cursosRef.onSnapshot((snapshot) => {
-      setActiveCursos(snapshot.data().usuario.reverse());
+      setActiveCursos(snapshot.data().usuario);
     });
   }, []);
   return (
@@ -90,7 +89,7 @@ const Table = () => {
                         {person.entidad}
                       </td>
                       <td className="whitespace-nowrap ">
-                        <a href={"/admin/registros?usuario=" + (personIdx + 1)}>
+                        <a href={"/admin/registros?usuario=" + (personIdx )}>
                           <button className="py-2 px-2 bg-blue-500 text-white font-bold rounded">
                             {" "}
                             Ver registros

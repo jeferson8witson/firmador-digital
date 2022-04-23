@@ -47,8 +47,8 @@ const List = () => {
         .firestore()
         .collection("registros")
         .doc("registros");
-      cursosRef.onSnapshot((snapshot) => {
-        setActiveCursos(snapshot.data().usuario[index].keys);
+      cursosRef.get().then(doc => {
+        setActiveCursos((doc.data().usuario[index].keys))
        
       });
     }, []);
