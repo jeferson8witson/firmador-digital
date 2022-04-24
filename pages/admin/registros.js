@@ -8,50 +8,70 @@ function classNames(...classes) {
 }
 
 function findGetParameter(url) {
-    var result = null,
-      tmp = [];
-    window.location.search
-      .substr(1)
-      .split("&")
-      .forEach(function (item) {
-        tmp = item.split("=");
-        if (tmp[0] === url) result = decodeURIComponent(tmp[1]);
-      });
-    return result;
-  }
+  var result = null,
+    tmp = [];
+  window.location.search
+    .substr(1)
+    .split("&")
+    .forEach(function (item) {
+      tmp = item.split("=");
+      if (tmp[0] === url) result = decodeURIComponent(tmp[1]);
+    });
+  return result;
+}
 const List = () => {
-    useEffect(() => {
-        const user = firebase.auth().currentUser;
-        if (user) {
-            console.log("hola")
-        } 
-        firebase.auth().onAuthStateChanged(async (user) => {
-          if (user) {
-            var user = firebase.auth().currentUser;
-            if (user != null || user.uid != "error") {
-              console.log("hola")
-            }
-            
-          }
-          else{
-            window.location.href = "/admin/login"
-          }
-        });
-      }, []);
-      const [activeCursos, setActiveCursos] = useState([]);
-  
-    useEffect(() => {
+  useEffect(() => {
+    const user = firebase.auth().currentUser;
+    if (user) {
+      console.log("hola");
+    }
+    firebase.auth().onAuthStateChanged(async (user) => {
+      if (user) {
+        var user = firebase.auth().currentUser;
+        if (user != null || user.uid != "error") {
+          console.log("hola");
+        }
+      } else {
+        window.location.href = "/admin/login";
+      }
+    });
+  }, []);
+  const [activeCursos, setActiveCursos] = useState([]);
 
-        let index = findGetParameter("usuario");
-        const cursosRef = firebase
-        .firestore()
-        .collection("registros")
-        .doc("registros");
-      cursosRef.get().then(doc => {
-        setActiveCursos((doc.data().usuario[index].keys))
-       
-      });
-    }, []);
+  useEffect(() => {
+    let index = findGetParameter("usuario");
+    let arrayAux = [];
+    const cursosRef = firebase
+      .firestore()
+      .collection("registros")
+      .doc("registros");
+    cursosRef.get().then((doc) => {
+      Object.keys(doc.data().usuario[index].keys)
+        .sort()
+        .forEach(function (item, i) {
+          arrayAux.push(doc.data().usuario[index].keys[item]);
+        });
+      setActiveCursos(arrayAux);
+    });
+  }, []);
+
+  const UpdateInfo = () => {
+    let arrayAux = [];
+    let index = findGetParameter("usuario");
+    const cursosRef = firebase
+      .firestore()
+      .collection("registros")
+      .doc("registros");
+    cursosRef.get().then((doc) => {
+      Object.keys(doc.data().usuario[index].keys)
+        .sort()
+        .forEach(function (item, i) {
+          arrayAux.push(doc.data().usuario[index].keys[item]);
+        });
+      setActiveCursos(arrayAux);
+    });
+  };
+
   return (
     <div>
       <Disclosure as="nav" className="bg-white shadow-sm">
@@ -125,30 +145,43 @@ const List = () => {
           </>
         )}
       </Disclosure>
-      <nav className="h-[60vh] overflow-y-auto w-11/12 xl:w-7/12 mx-auto my-10 border" aria-label="Directory">
-      {
-      activeCursos == null ? <p className="text-center my-10">Este usuario no tiene registros</p> :
-      Object.keys(activeCursos).map((letter) => (
-        <div key={letter} className="relative">
-          <div className="z-10 sticky top-0 border-t border-b border-gray-200 bg-blue-100 px-6 py-1 text-sm text-gray-900 font-bold">
-            <h3>{letter}</h3>
-          </div>
-          <ul role="list" className="relative z-0 divide-y divide-gray-200">
-        
-              <li key={letter} className="bg-white">
-                <div className="relative px-6 py-5 flex items-center space-x-3 hover:bg-gray-50 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500">
-                  <div className="flex-1 min-w-0">
-                   
+      <nav
+        className="h-[60vh] overflow-y-auto w-11/12 xl:w-7/12 mx-auto mt-10 border"
+        aria-label="Directory"
+      >
+        {activeCursos == null ? (
+          <p className="text-center my-10">Este usuario no tiene registros</p>
+        ) : (
+          Object.keys(activeCursos).map((letter) => (
+            <div key={letter} className="relative">
+              <div className="z-10 sticky top-0 border-t border-b border-gray-200 bg-blue-100 px-6 py-1 text-sm text-gray-900 font-bold">
+                <h3>{"Token: " + (parseInt(letter) + 1)}</h3>
+              </div>
+              <ul role="list" className="relative z-0 divide-y divide-gray-200">
+                <li key={letter} className="bg-white">
+                  <div className="relative px-6 py-5 flex items-center space-x-3 hover:bg-gray-50 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500">
+                    <div className="flex-1 min-w-0">
                       {/* Extend touch target to entire panel */}
                       <span className="absolute inset-0" aria-hidden="true" />
-                      <p className="text-sm font-medium text-gray-900">{activeCursos[letter]}</p>
+                      <p className="text-sm font-medium text-gray-900">
+                        {activeCursos[letter]}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </li>
-          </ul>
-        </div>
-      ))}
+                </li>
+              </ul>
+            </div>
+          ))
+        )}
       </nav>
+      <div className="w-11/12 xl:w-7/12 mx-auto ">
+        <button
+          onClick={(e) => UpdateInfo()}
+          className="text-center w-full bg-blue-600 text-white font-bold p-2 "
+        >
+          Clic aquí para actualizar información
+        </button>
+      </div>
     </div>
   );
 };

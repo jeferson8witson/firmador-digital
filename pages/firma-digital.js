@@ -70,6 +70,7 @@ const FirmaDigital = () => {
 
   useEffect(() => {
     setSolicitud(activeCursos.length);
+    CreateUser("id", activeCursos.length)
   }, [activeCursos]);
 
   return (

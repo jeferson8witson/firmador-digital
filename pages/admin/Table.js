@@ -24,7 +24,7 @@ const Table = () => {
       .collection("registros")
       .doc("registros");
     cursosRef.onSnapshot((snapshot) => {
-      setActiveCursos(snapshot.data().usuario);
+      setActiveCursos(snapshot.data().usuario.reverse());
     });
   }, []);
   return (
@@ -89,7 +89,7 @@ const Table = () => {
                         {person.entidad}
                       </td>
                       <td className="whitespace-nowrap ">
-                        <a href={"/admin/registros?usuario=" + (personIdx )}>
+                        <a href={"/admin/registros?usuario=" + (person.id )}>
                           <button className="py-2 px-2 bg-blue-500 text-white font-bold rounded">
                             {" "}
                             Ver registros
