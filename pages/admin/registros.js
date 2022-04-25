@@ -49,7 +49,7 @@ const List = () => {
       Object.keys(doc.data().usuario[index].keys)
         .sort()
         .forEach(function (item, i) {
-          arrayAux.push(doc.data().usuario[index].keys[item]);
+          arrayAux.push(doc.data().usuario[index].keys["key"+(i +1)]);
         });
       setActiveCursos(arrayAux);
     });
