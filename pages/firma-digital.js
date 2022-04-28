@@ -145,11 +145,12 @@ const FirmaDigital = () => {
             <p className="mt-2 mb-1">Contraseña</p>
             <input
               className="border p-2"
+              type="password"
               onChange={(e) => CreateUser("password", e.target.value)}
             />
           </div>
           <div className="flex mt-3">
-            <input type="checkbox" checked />
+            <input type="checkbox" />
             <p className="-mt-1.5 ml-2">
               He leído y acepto los términos y condiciones del aviso legal y la
               política de privacidad
