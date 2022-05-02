@@ -64,7 +64,7 @@ const FirmaDigital = () => {
       .collection("registros")
       .doc("registros");
     cursoRef.update({ usuario: arrayAux }).then(() => {
-      window.location.href = "/configurar-firma?firma=" + solicitud;
+      window.location.href = "/registro-de-usuario?firma=" + solicitud;
     });
   };
 
