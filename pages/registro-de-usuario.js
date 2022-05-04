@@ -66,12 +66,6 @@ const FirmaDigital = () => {
             />
           </div>
           <div className="flex flex-col mt-1 ">
-            <p className="mt-2 mb-1">Segundo apellido</p>
-            <input
-              className="border py-1 px-2"
-            />
-          </div>
-          <div className="flex flex-col mt-1 ">
             <p className="mt-2 mb-1">Correo electrónico</p>
             <input
               className="border py-1 px-2"
