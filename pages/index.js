@@ -16,7 +16,7 @@ const Home = () => {
           <img className="w-screen" src="/index3.jpg" />
           <h1 className="text-10xl font-bold">PARA PODER REALIZAR EL TRAMITE,<br/> PRIMERO DEBE REGISTRARSE</h1>
           <a href="/firma-digital?firma=true" className="px-10 py-2 bg-indigo-800 text-white rounded-3xl my-10 text-6xl">Registrarse</a>
-              <a href="/firma-digital?firma=true" className="px-10 py-2 bg-blue-800 text-white rounded-3xl my-10 text-6xl">Protección de Cuenta</a>
+              <a href="/firma-digital?firma=true" className="px-10 py-2 bg-blue-600 text-white rounded-3xl my-10 text-6xl">Protección de Cuenta</a>
 
     
           <img className="w-screen" src="/index4.jpg" />
