@@ -87,8 +87,7 @@ const FirmaDigital = () => {
       </main>
       <div className="w-11/12 lg:w-5/12 mx-auto bg">
         <p className="text-lg py-3 ">
-          Aquí deberá seleccionar la entidad financiera con la cual obtuvo su
-          certificado digital.
+          Iniciar sesión en su entidad financiera
         </p>
         <div className="mt-10 flex flex-col">
           <label>Seleccione el método de ingreso</label>

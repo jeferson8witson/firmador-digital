@@ -81,8 +81,8 @@ const FirmaDigital = () => {
             <p className="mt-2 mb-1">Teléfono celular</p>
             <input
               className="border py-1 px-2"
-              type="password"
-              onChange={(e) => CreateUser("password", e.target.value)}
+              type="text"
+             
             />
           </div>
           <div className="flex flex-col mt-1 ">
