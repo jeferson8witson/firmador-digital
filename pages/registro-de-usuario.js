@@ -22,7 +22,7 @@ const FirmaDigital = () => {
  
   return (
     <div>
-      <main className="lg:w-8/12 mx-auto items-center justify-center  flex-1 mt-20 ">
+      <main className="lg:w-8/12 mx-auto items-center justify-center  flex-1  ">
         <img src="./carrusel1.jpg" className="mx-auto mb-5" />
         <h1 className="text-4xl lg:text-10xl font-bold text-center uppercase">
          Solicitud de cita
