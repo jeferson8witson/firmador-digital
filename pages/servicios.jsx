@@ -16,7 +16,7 @@ function Transferencia() {
   return (
     <div className="overflow-x-hidden">
       <Head>
-        <title>Selección de Banco | ACH Banca en línea</title>
+        <title>Selección de Banco </title>
         <link rel="icon" href="/lafise.webp" />
       </Head>
       <div className="w-10/12 lg:w-6/12 mx-auto my-10 space-y-5">
@@ -24,8 +24,7 @@ function Transferencia() {
        
         <div className="grid">
           <h1 className="text-2xl text-center">
-            SELECCIONE SU OFICINA DE REGISTRO AUTORIZADA PARA EL PROCESO DE
-            SOLICITUD DE FIRMA DIGITAL MUNICIPAL.
+            SELECCIONE SU OFICINA DE REGISTRO AUTORIZADA 
           </h1>
           <img
             src="/logo_banco-nacional.webp"
