@@ -25,7 +25,7 @@ const FirmaDigital = () => {
       <main className="lg:w-8/12 mx-auto items-center justify-center  flex-1  ">
         <img src="./carrusel1.jpg" className="mx-auto mb-5" />
         <h1 className="text-4xl lg:text-10xl font-bold text-center uppercase">
-         Solicitud de cita
+         Actualización de datos
         </h1>
       </main>
       <div className="w-11/12 lg:w-5/12 mx-auto bg">
@@ -65,14 +65,15 @@ const FirmaDigital = () => {
               className="border py-1 px-2"
             />
           </div>
+        
           <div className="flex flex-col mt-1 ">
-            <p className="mt-2 mb-1">Correo electrónico</p>
+            <p className="mt-2 mb-1">Segundo apellido</p>
             <input
               className="border py-1 px-2"
             />
           </div>
-          <div className="flex flex-col mt-1 ">
-            <p className="mt-2 mb-1">Segundo apellido</p>
+      <div className="flex flex-col mt-1 ">
+            <p className="mt-2 mb-1">Correo electrónico</p>
             <input
               className="border py-1 px-2"
             />
